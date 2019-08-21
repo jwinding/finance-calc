@@ -9,4 +9,4 @@ Then there's also an advanced mode that lets the user play with a lot more param
 
 # Implementation
 The site is written using the Angular framework; the simulations also run in pure javascript/typescript, and there is no backend component. 
-This whole thing was really just a small project for me to learn the basics of javascript and Angular, so it's not really something so very serious. 
+This whole thing was really just a small project for me to learn the basics of javascript and Angular, so it's not really something so very serious. The chart displaying simulation results is drawn using the nice charting library amCharts 4 (https://www.amcharts.com/). 
