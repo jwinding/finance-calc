@@ -1,0 +1,59 @@
+
+<div class="slidecontainer">
+
+    
+    <div class="sliderTitle"> Starting networth</div>  
+    <div> </div>
+
+    <div class="inputSlider">
+        <div class="hider">
+            <input #networthSlider id = "networthSlider" 
+            type="range" min="1000" max="1000000" value = {{params.networth}}
+            step="1000"
+            class="slider" [(ngModel)] = "params.networth">
+        </div>
+    </div>
+    <div class="sliderValue">{{params.networth | number }}$</div>
+    
+
+    <div class="sliderTitle">Asset allocation</div>
+    <div> </div>
+    
+    <div class="inputSlider">
+        <input #allocationSlider id = "allocationSlider" 
+            type="range" min="0" max="100" value = "0" step="1"
+            (change)="computeReturn()"
+            class="slider" [(ngModel)]="params.stockAllocation" >
+    </div>
+
+    <div class="sliderValue">{{params.stockAllocation}} | {{100-params.stockAllocation}}</div>
+    
+    <div class="sliderTitle labels_under">
+        <div class="stocks">Stocks</div>
+        <div class="bonds">Bonds</div>
+    </div>
+    <div> </div>
+    <div class="sliderInfo">Annual return: {{ effReturn | number:'1.0-2' }} % </div>
+    <div></div>
+
+
+    <div class="sliderTitle">Years to simulate</div>
+    <div></div>
+
+    <div class="inputSlider">
+        <input #yearsSlider id = "yearsSlider" 
+            type="range" min="1" max="50" value={{params.years}}
+            class="slider" [(ngModel)]="params.years"> 
+    </div>
+    <div class="sliderValue">{{params.years}} </div>
+
+
+</div>
+
+<div class="buttonContainer">
+    <button id="runButton" (click)="run()">Run</button>
+</div>
+
+
+<!-- <app-second-view *ngIf = "showing" [finance]="finance"></app-second-view> -->
+

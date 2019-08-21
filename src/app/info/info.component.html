@@ -1,0 +1,56 @@
+<div class="wrapper">
+<h3> How this calculator works </h3>
+<p>
+    This calculator runs a Monte Carlo simulation of the two type of investments, 
+    stocks and bonds, and displays the results. 
+
+    Here, <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">"Monte Carlo simulation"</a> means that it runs a large number 
+    (1000 is the default setting) of independent simulations, and then one studies 
+    the statistics of the resulting ensemble. 
+    This is a very common simulation method used in financial modelling, as well as in computational 
+    sciences in general. 
+</p>
+
+<p>
+    For this simulation, the individual simulations are what is knowns as 
+    <a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">Geometric Brownian Motion</a> simulations, which is a very basic model used for 
+    modelling stock prices and other investment vehichles like bonds. 
+    This is a basic model, which underlies the famous <a>Black-Scholes equation</a> 
+    for option pricing. 
+    The GMB simulation has two adjustable parameters, which correspond to the average 
+    annual return, as well as the variance, i.e. how much it randomly fluctuates.
+    In the default settings, the stocks have an average annual return of about 8% and 
+    rather high variance, while the bonds have a lower variance but also a lower average 
+    return of about 4.5%. 
+    The GMB model has a number of obvious shortcomings, most notably perhaps that it assumes
+    constant volatility, something that is not true of the actual market.
+</p>
+
+<h3>The different parameters</h3>
+<p>
+    Hopefully all the basic input parameters are self-explanatory. 
+    The shown annual return is the average annual return.
+</p>
+
+    <p>
+    In the advanced input settings, you can freely tweak all the parameters of the GMB model 
+    and the Monte Carlo simulation, as well as see the effect of saving or withdrawing money 
+    every year. In addition there's an inflation parameter here, which controls how much this
+     amount changes per year. 
+
+
+<p>
+    Next, you can play with the parameters of the two investment types. 
+    The variance parameter controls how much random variation there is in the geometric Brownian motion, 
+    while the annual return again is the average value. 
+</p>
+<p>
+    Finally you can also change how many simulations that are run, as well as 
+    change the time resolution of the Brownian motion. 
+</p>
+
+
+<h4>Disclaimer</h4>
+This is a very basic simulator, that is only intended to give some rough ideas.
+Do not rely on it for investment decisions, always do your own due diligence. 
+</div>

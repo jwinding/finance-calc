@@ -1,0 +1,37 @@
+h1 {
+    text-align: center; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#chartdiv {
+    text-align:center; 
+    width: 95% ;
+    height: 500px; 
+    /* border: 1px solid red ;  */
+    margin: 0 auto; 
+    color:darkgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1rem; 
+}
+
+em {
+    font-style: bold;
+}
+
+.summary{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem; 
+
+}
+
+h3 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    margin: 1em 1em; 
+}
+
+ul {
+    text-align: left;
+    list-style-type: square;
+}

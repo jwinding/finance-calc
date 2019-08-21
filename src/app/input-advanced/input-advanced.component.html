@@ -1,0 +1,181 @@
+
+<div class="slidecontainer">
+        <div class="sliderTitle"> Starting networth</div>  
+        <div> </div>
+    
+        <div class="inputSlider">
+            <div class="hider">
+                <input #networthSlider id = "networthSlider" 
+                type="range" min="1000" max="1000000" value = {{params.networth}}
+                step="1000"
+                class="slider" [(ngModel)] = "params.networth">
+            </div>
+        </div>
+        <div class="sliderValue">{{params.networth | number }}$</div>
+        
+    
+        <div class="sliderTitle">Asset allocation</div>
+        <div> </div>
+        
+        <div class="inputSlider">
+            <input #allocationSlider id = "allocationSlider" 
+                type="range" min="0" max="100" value = "0" step="1"
+                class="slider" 
+                [(ngModel)]="params.stockAllocation"
+                (change)="computeDrifts()" >
+        </div>
+    
+        <div class="sliderValue">{{params.stockAllocation}} | {{100-params.stockAllocation}}</div>
+        
+        <div class="sliderTitle labels_under">
+            <div class="stocks">Stocks</div>
+            <div class="bonds">Bonds</div>
+        </div>
+        <div> </div>
+        <div class="sliderInfo">Annual return: {{ effReturn | number:'1.0-2' }} % </div>
+        <div></div>
+    
+        <div class="sliderTitle">Years to simulate</div>
+        <div></div>
+    
+        <div class="inputSlider">
+            <input #yearsSlider id = "yearsSlider" 
+                type="range" min="1" max="50" value={{params.years}}
+                class="slider" [(ngModel)]="params.years"> 
+        </div>
+        <div class="sliderValue">{{params.years}} years</div>
+    
+    
+    </div>
+    
+<div class="buttonContainer">
+    <button id="runButton" (click)="run()">Run</button>
+</div>
+
+
+<div class="savingOptionsContainer">
+    <div class="title">
+        <h2> Savings/Retirement</h2>
+    </div>
+    <div></div>
+    
+
+    <div class="sliderTitle">Annual savings/withdrawal</div>
+    <div></div>
+
+    <div class="inputSlider">
+    <input #savings id = "savings" 
+        type="range" min="-100000" max="100000" value = {{params.yearlySaving}} 
+        step="100" 
+        class="slider" [(ngModel)] = "params.yearlySaving">
+    </div>
+    <div class="sliderValue">{{params.yearlySaving | number}}$</div>
+    <div class="sliderInfo">
+        {{params.yearlySaving/params.networth * 100 |number }}% of starting networth. 
+    </div>
+    <div></div>
+
+    <div class="sliderTitle">Inflation</div>
+    <div></div>
+    <div class="inputSlider">
+            <input #inflation id = "inflation" 
+                type="range" min="-100" max="100" value = {{params.inflation}} 
+                step="1" 
+                class="slider" [(ngModel)] = "params.inflation">
+            </div>
+            <div class="sliderValue">{{params.inflation/10 | number}}%</div>
+</div>
+        
+        
+           
+
+<div class="advancedInputContainer"> 
+
+    <div class="stockSliders">
+        <h2> Stocks</h2>
+
+        <div class="sliderTitle">Annual return</div>
+        <input #stockDrift id = "StockDrift" 
+            type="range" min="0" max="500" value = {{stockRet}} 
+            step="1" 
+            (change)="computeDrifts()"
+            class="slider" [(ngModel)] = "stockRet">
+             <p class="sliderValueUnder">{{stockRet/10}}%</p>
+
+        <div class="sliderTitle">Variance</div>
+        <input #stockVariance id = "StockVariance" 
+            type="range" min="1" max="3500" value = {{params.stockSigma}}
+            step="1"
+            (change)="computeDrifts()"
+            class="slider" [(ngModel)] = "params.stockSigma"> 
+            <p class="sliderValueUnder">{{params.stockSigma/1000}}
+
+                <!-- <br>
+                stockMu: {{params.stockMu  }}
+            </p> -->
+
+    </div>
+
+    <div class="bondSliders">
+        <h2>Bonds</h2>
+        <div class="sliderTitle">Annual return</div>
+        <input #bondDrift id = "BondDrift" 
+            type="range" min="0" max="500" value = {{bondRet}}
+            step="1"
+            (change)="computeDrifts()"
+            class="slider" [(ngModel)] = "bondRet"> 
+            <p class="sliderValueUnder">{{bondRet/10}}%</p>
+
+        <div class="sliderTitle">Variance</div>
+        <input #bondVariance id = "BondVariance" 
+            type="range" min="1" max="3500" value = {{params.bondsSigma}}
+            step="1"
+            (change)="computeDrifts()"
+            class="slider" [(ngModel)] = "params.bondsSigma"> 
+            <p class="sliderValueUnder">{{params.bondsSigma/1000}}</p>
+
+    </div>
+</div> 
+
+
+<div class="simulationOptionsContainer">
+    <div class="title">
+        <h2> Simulation options</h2>
+    </div>
+    <div></div>
+    
+
+    <div class="sliderTitle">Number of simulations</div>
+    <div></div>
+
+    <div class="inputSlider">
+    <input #numSims id = "numSims" 
+        type="range" min="1" max="5000" value = {{params.numberMC}} 
+        step="1" 
+        class="slider" [(ngModel)] = "params.numberMC">
+    </div>
+    <div class="sliderValue">{{params.numberMC}}</div>
+
+    <div class="sliderTitle">Timestep (in days)</div>
+    <div></div>
+    <div class="inputSlider">
+    <input #dt id = "dt" 
+        type="range" min="0.004" max="0.2" value = {{params.dt}}
+        step="0.004"
+        (change)="computeReturns()"
+        class="slider" [(ngModel)] = "params.dt"> 
+    </div>
+    <div class="sliderValue">{{params.dt*255 | number:'1.0-0' }}</div>
+
+        
+            
+        
+</div>
+
+
+    
+    
+    
+    <!-- <app-second-view *ngIf = "showing" [finance]="finance"></app-second-view> -->
+    
+    

@@ -1,0 +1,32 @@
+<div class="summary"> 
+
+        <h3>Results</h3>
+
+        <ul>
+                <li>   
+                        Ran {{params.numberMC}} Monte Carlo simulations.   
+                </li>
+
+                <li>
+                The average value at end was <strong>{{simulator.mean| number:'1.0-0'}}$ </strong>, 
+                representing a gain of <strong>{{ (simulator.mean/simulator.networth -1)*100 | number }}% </strong> over {{simulator.years}} years. 
+                </li>
+                <li>
+                        The best final value was {{simulator.bestReturn | number:'1.0-0'}}$, and the worst was {{simulator.worstReturn | number:'1.0-0'}}$.
+                <li>
+                The standard deviation was {{simulator.std | number:'1.0-0'}}$, or {{simulator.std/simulator.mean*100 | number}}%. 
+                </li>
+
+                <li *ngIf="params.yearlySaving<0">
+                         {{simulator.bankruptcy |number}} simulations ran out of money, representing a {{100* simulator.bankruptcy/params.numberMC | number}}% risk of going bankrupt. 
+                </li>
+
+        </ul>
+     
+
+</div>
+<div id="chartdiv"></div>
+
+
+
+    
