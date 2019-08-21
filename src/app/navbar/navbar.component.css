@@ -1,9 +1,10 @@
 ul {
     list-style-type: none;
     margin: 0;
+    margin-left:auto;
     margin-top:auto;
     padding: 0;
-    padding-left:24px;
+    
     overflow: hidden;
     background-color: white;
   }
@@ -23,9 +24,8 @@ ul {
     font-size: 1.0rem;
   }
   
-  /* Change the link color to #111 (black) on hover */
+  /* Change the link color to gray on hover */
   li a:hover {
-    /* background-color: #111; */
     color:gray;
     cursor: pointer;
   }
@@ -37,5 +37,5 @@ ul {
     font-family: Arial, Helvetica, sans-serif;
   }
   .grid{
-    float:left; 
+    display:inline-block; 
   }

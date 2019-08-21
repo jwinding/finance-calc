@@ -27,6 +27,6 @@ import { InfoComponent } from './info/info.component';
   ],
   providers: [SimulatorParameters],
   bootstrap: [AppComponent],
-  entryComponents: [ResultsComponent]
+  entryComponents: [ResultsComponent,InfoComponent]
 })
 export class AppModule { }
