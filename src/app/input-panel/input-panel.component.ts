@@ -18,7 +18,7 @@ export class InputPanelComponent implements OnInit {
     // this.results.showResults();
   }
 
-  private computeReturn(){
+  public computeReturn(){
     let sSigma = this.params.stockSigma;
     let bSigma = this.params.bondsSigma;
     let sMu = this.params.stockMu;

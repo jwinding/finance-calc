@@ -162,7 +162,6 @@
     <input #dt id = "dt" 
         type="range" min="0.004" max="0.2" value = {{params.dt}}
         step="0.004"
-        (change)="computeReturns()"
         class="slider" [(ngModel)] = "params.dt"> 
     </div>
     <div class="sliderValue">{{params.dt*255 | number:'1.0-0' }}</div>

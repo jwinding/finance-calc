@@ -23,7 +23,7 @@ export class ResultsComponent implements OnInit {
   std: number; 
 
   @Input('input') params: SimulatorParameters; 
-  constructor(private zone: NgZone, private simulator: SimulatorService){
+  constructor(private zone: NgZone, public simulator: SimulatorService){
     
   }
 

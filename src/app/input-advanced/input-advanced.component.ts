@@ -43,7 +43,7 @@ export class InputAdvancedComponent implements OnInit {
     this.computeDrifts(); 
   }
 
-  private computeDrifts(){
+  public computeDrifts(){
     let sSigma = this.params.stockSigma/1000;
     let bSigma = this.params.bondsSigma/1000;
 
