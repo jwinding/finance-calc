@@ -87,9 +87,12 @@ export class ResultsComponent implements OnInit {
 
       chart.legend = new am4charts.Legend();
       chart.legend.position="top";
-
-      mean.tooltipText = "{valueY.value}";
+      
+      mean.tooltipText = "{valueY.formatNumber('#,###,###.')}$";
       chart.cursor = new am4charts.XYCursor();
+
+      dateAxis.tooltipDateFormat = "yyyy-MM";
+
 
       // let scrollbarX = new am4charts.XYChartScrollbar();
       // scrollbarX.series.push(best);
