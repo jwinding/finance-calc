@@ -13,10 +13,16 @@
             class="slider" [(ngModel)] = "params.networth">
         </div>
     </div>
-    <div class="sliderValue">{{params.networth | number }}$</div>
+    <div class="sliderValue">${{params.networth | number }}</div>
     
 
     <div class="sliderTitle">Asset allocation</div>
+    <div> </div>
+
+    <div class="sliderTitle2">
+        <div class="stocks">Bonds</div>
+        <div class="bonds">Stocks</div>
+    </div>
     <div> </div>
     
     <div class="inputSlider">
@@ -26,13 +32,9 @@
             class="slider" [(ngModel)]="params.stockAllocation" >
     </div>
 
-    <div class="sliderValue">{{params.stockAllocation}} | {{100-params.stockAllocation}}</div>
+    <div class="sliderValue">{{params.stockAllocation}}% stocks </div>
     
-    <div class="sliderTitle labels_under">
-        <div class="stocks">Stocks</div>
-        <div class="bonds">Bonds</div>
-    </div>
-    <div> </div>
+
     <div class="sliderInfo">Annual return: {{ effReturn | number:'1.0-2' }} % </div>
     <div></div>
 
@@ -45,7 +47,7 @@
             type="range" min="1" max="50" value={{params.years}}
             class="slider" [(ngModel)]="params.years"> 
     </div>
-    <div class="sliderValue">{{params.years}} </div>
+    <div class="sliderValue">{{params.years}} years </div>
 
 
 </div>
@@ -53,7 +55,4 @@
 <div class="buttonContainer">
     <button id="runButton" (click)="run()">Run</button>
 </div>
-
-
-<!-- <app-second-view *ngIf = "showing" [finance]="finance"></app-second-view> -->
 

@@ -7,18 +7,24 @@
                         Ran {{params.numberMC}} Monte Carlo simulations.   
                 </li>
 
-                <li>
-                The average value at end was <strong>{{simulator.mean| number:'1.0-0'}}$ </strong>, 
-                representing a gain of <strong>{{ (simulator.mean/simulator.networth -1)*100 | number }}% </strong> over {{simulator.years}} years. 
+                <li *ngIf="simulator.mean>simulator.networth">
+                The average value at end was <strong>${{simulator.mean| number:'1.0-0'}}</strong>, 
+                representing a gain of <strong>{{ (simulator.mean/simulator.networth -1)*100 | number :'1.0-1'}}% </strong> over {{simulator.years}} years. 
                 </li>
+
+                <li *ngIf="simulator.mean<simulator.networth">
+                        The average value at end was <strong>${{simulator.mean| number:'1.0-0'}}</strong>, 
+                        representing a loss of <strong>{{ (simulator.mean/simulator.networth -1)*100 | number :'1.0-1'}}% </strong> over {{simulator.years}} years. 
+                </li>
+
                 <li>
-                        The best final value was {{simulator.bestReturn | number:'1.0-0'}}$, and the worst was {{simulator.worstReturn | number:'1.0-0'}}$.
+                        The best final value was ${{simulator.bestReturn | number:'1.0-0'}}, and the worst was ${{simulator.worstReturn | number:'1.0-0'}}.
                 <li>
-                The standard deviation was {{simulator.std | number:'1.0-0'}}$, or {{simulator.std/simulator.mean*100 | number}}%. 
+                The standard deviation was ${{simulator.std | number:'1.0-0'}}, or {{simulator.std/simulator.mean*100 | number:'1.0-1'}}%. 
                 </li>
 
                 <li *ngIf="params.yearlySaving<0">
-                         {{simulator.bankruptcy |number}} simulations ran out of money, representing a {{100* simulator.bankruptcy/params.numberMC | number}}% risk of going bankrupt. 
+                         {{simulator.bankruptcy |number}} simulations ran out of money, representing a {{100* simulator.bankruptcy/params.numberMC | number:'1.0-0'}}% risk of going bankrupt. 
                 </li>
 
         </ul>

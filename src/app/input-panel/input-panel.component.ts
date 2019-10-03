@@ -37,7 +37,8 @@ export class InputPanelComponent implements OnInit {
   }
 
   
-  run(){ //run simulation and show results below. 
+  run(){ 
+    //run simulation and show results below. 
 
     if(this.results.resultsVisible()) {
       this.results.hideResults(); 

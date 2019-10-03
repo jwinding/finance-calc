@@ -39,3 +39,12 @@ ul {
   .grid{
     display:inline-block; 
   }
+
+  li a.active-link {
+    
+    background-color: rgb(148, 148, 148);  ; 
+    color:white; 
+  }
+  li a.active-link:hover{
+    color:black; 
+  }

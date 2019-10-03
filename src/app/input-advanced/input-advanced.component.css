@@ -67,10 +67,22 @@ p {
 .sliderTitle{
   float: left;
   text-align: left;
+  
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.65rem;
-  margin-top:8px;
-}
+  font-size: 0.8rem;
+  margin-top:12px;
+  margin-bottom:2px;
+  }
+  .sliderTitle2{
+    float: left;
+    text-align: left;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    margin-top:6px;
+    margin-bottom:2px;
+    }
+
 .inputSlider{
   float:left;
   overflow:hidden;
@@ -78,20 +90,19 @@ p {
   padding:0;
 }
 .sliderValue{
-    margin-top:6px;
-    float:right; 
-    font-size:0.6em; 
-    font-family:Arial, Helvetica, sans-serif;
-    color:darkgray; 
+  margin-top:7px;
+  float:right; 
+  font-size:0.64em; 
+  font-family:Arial, Helvetica, sans-serif;
+  color:rgb(53, 53, 53); 
   }
+
   .sliderInfo{
-    font-size:0.55em;
+    font-size:0.65em;
     font-family:Arial, Helvetica, sans-serif;
     /* color:rgb(72, 72, 72); */
-    color:darkgray; 
-  
-  
-  }
+    color:black; 
+    }
 
   #inflation{
     margin-bottom:15px; 
@@ -99,9 +110,9 @@ p {
 
 .sliderValueUnder{
     margin-top:4px;
-    font-size:0.5em; 
+    font-size:0.64em; 
     font-family:Arial, Helvetica, sans-serif;
-    color:darkgray; 
+    color:rgb(53, 53, 53); 
 }
 .labels_under{
   position: relative;
@@ -116,13 +127,17 @@ p {
 
 
 
+
+
 .stocks{
-  margin-left:5px;
+  font-size:0.65rem;
+  margin-left:0px;
   float:left;
 }
 .bonds{
+  font-size:0.65rem;
   float:right;
-  margin-right: 5px;
+  margin-right: 0px;
 }
 
 .buttonContainer{

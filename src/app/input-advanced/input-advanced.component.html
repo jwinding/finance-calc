@@ -11,10 +11,16 @@
                 class="slider" [(ngModel)] = "params.networth">
             </div>
         </div>
-        <div class="sliderValue">{{params.networth | number }}$</div>
+        <div class="sliderValue">${{params.networth | number }}</div>
         
     
         <div class="sliderTitle">Asset allocation</div>
+        <div> </div>
+    
+        <div class="sliderTitle2">
+            <div class="stocks">Bonds</div>
+            <div class="bonds">Stocks</div>
+        </div>
         <div> </div>
         
         <div class="inputSlider">
@@ -24,14 +30,8 @@
                 [(ngModel)]="params.stockAllocation"
                 (change)="computeDrifts()" >
         </div>
-    
-        <div class="sliderValue">{{params.stockAllocation}} | {{100-params.stockAllocation}}</div>
+        <div class="sliderValue">{{params.stockAllocation}}% stocks</div>
         
-        <div class="sliderTitle labels_under">
-            <div class="stocks">Stocks</div>
-            <div class="bonds">Bonds</div>
-        </div>
-        <div> </div>
         <div class="sliderInfo">Annual return: {{ effReturn | number:'1.0-2' }} % </div>
         <div></div>
     
@@ -55,7 +55,7 @@
 
 <div class="savingOptionsContainer">
     <div class="title">
-        <h2> Savings/Retirement</h2>
+        <h2> Savings/Withdrawals</h2>
     </div>
     <div></div>
     
@@ -69,7 +69,7 @@
         step="100" 
         class="slider" [(ngModel)] = "params.yearlySaving">
     </div>
-    <div class="sliderValue">{{params.yearlySaving | number}}$</div>
+    <div class="sliderValue">${{params.yearlySaving | number}}</div>
     <div class="sliderInfo">
         {{params.yearlySaving/params.networth * 100 |number }}% of starting networth. 
     </div>
@@ -160,7 +160,7 @@
     <div></div>
     <div class="inputSlider">
     <input #dt id = "dt" 
-        type="range" min="0.004" max="0.2" value = {{params.dt}}
+        type="range" min="0.004" max="0.12" value = {{params.dt}}
         step="0.004"
         class="slider" [(ngModel)] = "params.dt"> 
     </div>
